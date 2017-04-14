@@ -1,4 +1,6 @@
-#SETUP DATE
+########################################################
+# SETUP DATE
+########################################################
 TIMEZONE="Europe/Warsaw"
 
 sudo rm /etc/localtime
@@ -6,10 +8,9 @@ sudo ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 sudo rm /etc/timezone
 echo $TIMEZONE | sudo tee /etc/timezone
 
-apt-get install vim -y
-apt-get install git -y
-
-#Fixing Raspberry Pi Wifi from Dropping
+########################################################
+# Fixing Raspberry Pi Wifi from Dropping
+########################################################
 if [ -f /etc/ifplugd/action.d/ifupdown ]; then
     echo "Backup /etc/ifplugd/action.d/ifupdown.original"
     sudo mv /etc/ifplugd/action.d/ifupdown /etc/ifplugd/action.d/ifupdown.original
@@ -19,6 +20,11 @@ if [ ! -f /etc/ifplugd/action.d/ifupdown ]; then
     sudo cp /etc/wpa_supplicant/ifupdown.sh /etc/ifplugd/action.d/ifupdown
 fi
 
+########################################################
+# Install Packages
+########################################################
+apt-get install vim -y
+apt-get install git -y
 #NODEJS
 if ! type node >/dev/null; then
     MACHINE=$(uname -m)
