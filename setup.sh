@@ -1,3 +1,11 @@
+#SETUP DATE
+TIMEZONE="Europe/Warsaw"
+
+sudo rm /etc/localtime
+sudo ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime
+sudo rm /etc/timezone
+echo $TIMEZONE | sudo tee /etc/timezone
+
 apt-get install vim -y
 apt-get install git -y
 
