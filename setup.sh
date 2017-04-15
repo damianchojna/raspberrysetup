@@ -25,6 +25,7 @@ fi
 ########################################################
 apt-get install vim -y
 apt-get install git -y
+apt-get install screen -y
 #NODEJS
 if ! type node >/dev/null; then
     MACHINE=$(uname -m)
