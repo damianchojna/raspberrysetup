@@ -23,6 +23,7 @@ fi
 ########################################################
 # Install Packages
 ########################################################
+apt-get update
 apt-get install vim -y
 apt-get install git -y
 apt-get install nginx -y
