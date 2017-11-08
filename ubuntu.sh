@@ -10,4 +10,4 @@
   echo "alias node=nodejs" >> /etc/profile 
   ln -s /usr/bin/nodejs /usr/bin/node
   npm i pm2 -g
-  
+  setcap 'cap_net_bind_service=+ep' /usr/bin/nodejs #ustawienie mozliwosci otwierania portow ponizej
