@@ -5,9 +5,7 @@
   adduser hbq sudo
   
   #nodejs
-  apt-get install nodejs
-  apt-get install npm
-  echo "alias node=nodejs" >> /etc/profile 
-  ln -s /usr/bin/nodejs /usr/bin/node
+  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  sudo apt-get install -y nodejs
   npm i pm2 -g
-  setcap 'cap_net_bind_service=+ep' /usr/bin/nodejs #ustawienie mozliwosci otwierania portow ponizej 1024
+  setcap 'cap_net_bind_service=+ep' /usr/bin/node #ustawienie mozliwosci otwierania portow ponizej 1024
