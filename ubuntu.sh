@@ -19,3 +19,6 @@
   #MYSQL
   sudo apt-get install mysql-server
   mysql_secure_installation
+  mysql --user=root mysql -p
+  #CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypass';
+  #GRANT ALL ON *.* TO 'myuser'@'%';
