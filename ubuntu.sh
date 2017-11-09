@@ -15,5 +15,7 @@
   
   #NGINX
   sudo apt-get install nginx -y
-  sudo apt-get install mysql-server
   
+  #MYSQL
+  sudo apt-get install mysql-server
+  mysql_secure_installation
