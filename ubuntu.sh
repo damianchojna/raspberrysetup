@@ -22,3 +22,4 @@
   mysql --user=root mysql -p
   #CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypass';
   #GRANT ALL ON *.* TO 'myuser'@'%';
+  sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf #bind-address            = 0.0.0.0
