@@ -46,3 +46,26 @@ if ! type node >/dev/null; then
     echo "Nodejs installed"
     node --version
 fi
+
+#SAMBA
+sudo apt-get install samba samba-common-bin
+#dodajemy naszego użytkownika(w miejsce pi wpisz swoją nazwę) i podajemy hasło wymagane do zalogowania się na nasz dysk sieciowy.
+sudo smbpasswd -a pi
+#na wszelki wypadek wykonujemy kopię zapasową pliku konfiguracyjnego
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.old
+# W Sekcji Authentication usuwamy # sprzed security = user. 
+# Jeśli chcemy móc coś wysyłać do RPi, a nie tylko pobierać, to w sekcji [homes] zmieniamy read only = yes na read only = no.
+#Kolejnym etapem jest dodanie folderów lub dysków, które mają być udostępnione.
+sudo vim /etc/samba/smb.conf
+
+[public]
+comment = Public Storage
+path = /home/public
+valid users = @users
+force group = users
+create mask = 0660
+directory mask = 0771
+read only = no
+
+#restartujemy serwer Samby.
+sudo /etc/init.d/samba restart
