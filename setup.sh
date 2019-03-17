@@ -55,6 +55,15 @@ sudo dpkg -i grafana_5.1.4_armhf.deb
 sudo systemctl enable grafana-server 
 sudo systemctl start grafana-server
 
+#INFLUX
+curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+echo "deb https://repos.influxdata.com/debian stretch stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo apt update
+sudo apt install influxdb  
+sudo systemctl enable influxdb
+sudo systemctl start influxdb 
+influx
+
 #SAMBA
 sudo apt-get install samba samba-common-bin
 #dodajemy naszego użytkownika(w miejsce pi wpisz swoją nazwę) i podajemy hasło wymagane do zalogowania się na nasz dysk sieciowy.
