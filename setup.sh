@@ -46,6 +46,9 @@ if ! type node >/dev/null; then
     echo "Nodejs installed"
     node --version
 fi
+#dla pm2
+sudo apt-get pm2 -g
+sudo pm2 startup systemd -u pi
 
 #Graphana - do not work
 #sudo apt update 
