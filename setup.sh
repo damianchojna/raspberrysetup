@@ -51,10 +51,11 @@ fi
 sudo apt update 
 sudo apt upgrade -y
 sudo apt autoremove -y
+sudo apt --fix-broken install
+sudo apt-get install adduser libfontconfig
 wget https://dl.grafana.com/oss/release/grafana_5.4.0_armhf.deb
 sudo dpkg -i grafana_5.4.0_armhf.deb
 sudo apt-get upgrade
-sudo apt --fix-broken install
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable grafana-server
 sudo /bin/systemctl start grafana-server
