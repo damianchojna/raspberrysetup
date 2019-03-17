@@ -47,18 +47,21 @@ if ! type node >/dev/null; then
     node --version
 fi
 
-#Graphana
-sudo apt update 
-sudo apt upgrade -y
-sudo apt autoremove -y
-sudo apt --fix-broken install
-sudo apt-get install adduser libfontconfig
-wget https://dl.grafana.com/oss/release/grafana_5.4.0_armhf.deb
-sudo dpkg -i grafana_5.4.0_armhf.deb
-sudo apt-get upgrade
-sudo /bin/systemctl daemon-reload
-sudo /bin/systemctl enable grafana-server
-sudo /bin/systemctl start grafana-server
+#Graphana - do not work
+#sudo apt update 
+#sudo apt upgrade -y
+#sudo apt autoremove -y
+#sudo apt --fix-broken install
+#sudo apt-get install adduser libfontconfig
+#wget https://dl.grafana.com/oss/release/grafana_5.4.0_armhf.deb
+#sudo dpkg -i grafana_5.4.0_armhf.deb
+#sudo apt-get upgrade
+#sudo /bin/systemctl daemon-reload
+#sudo /bin/systemctl enable grafana-server
+#sudo /bin/systemctl start grafana-server
+
+#Grafana and influx easy way
+wget --no-check-certificate  https://bitbucket.org/api/2.0/snippets/scargill/qexexb/master/files/script.sh
 
 #INFLUX
 curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
