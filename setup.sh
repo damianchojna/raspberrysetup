@@ -47,6 +47,14 @@ if ! type node >/dev/null; then
     node --version
 fi
 
+#Graphana
+sudo apt --fix-broken install
+sudo apt-get install adduser libfontconfig
+wget https://github.com/fg2it/grafana-on-raspberry/releases/download/v5.1.4/grafana_5.1.4_armhf.deb
+sudo dpkg -i grafana_5.1.4_armhf.deb
+sudo systemctl enable grafana-server 
+sudo systemctl start grafana-server
+
 #SAMBA
 sudo apt-get install samba samba-common-bin
 #dodajemy naszego użytkownika(w miejsce pi wpisz swoją nazwę) i podajemy hasło wymagane do zalogowania się na nasz dysk sieciowy.
