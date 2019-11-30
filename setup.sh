@@ -97,3 +97,14 @@ read only = no
 
 #restartujemy serwer Samby.
 sudo /etc/init.d/samba restart
+
+
+#Node.js
+curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+sudo apt install -y nodejs
+
+#Influx
+curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+echo "deb https://repos.influxdata.com/debian buster stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo apt-get update && sudo apt-get install influxdb
+sudo service influxdb start
